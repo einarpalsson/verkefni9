@@ -31,10 +31,10 @@ Gefin er grunnur og eru athugasemdir þar.
 
 Setja þarf upp tól:
 
-* `eslint` með plugins eins og í verkefni 8
+* `eslint` með plugins eins og í verkefni 8 
 * `babel`
 * `rollup` með plugins til að geta notað NPM module
-* `browser-sync`
+* `browser-sync` 
 * `concurrently`
 * `leaflet`
 
