@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Verkefni 9</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="earthquakes-container">
+      <h1>Jarðskjálftar 4,5+ á richter seinustu 30 daga</h1>
+      <p class="loading">Hleð gögnum...</p>
+      <ul class="earthquakes">
+
+        <!--
+          <li>
+            <div>
+              <h2>M 4.6 - 105 km NNW of Villa General Roca, Argentina</h2>
+              <dl>
+                <dt>Tími</dt>
+                <dd>02.11.2020 05:10:46</dd>
+                <dt>Styrkur</dt>
+                <dd>4.6 á richter</dd>
+              </dl>
+              <div class="buttons">
+                <button>Sjá á korti</button>
+                <a href="https://earthquake.usgs.gov/earthquakes/eventpage/us7000c95h" target="_blank">Skoða nánar</a>
+              </div>
+            </div>
+          </li>
+        -->
+      </ul>
+      <footer>
+        <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">Gögn frá USGS</a>
+      </footer>
+    </div>
+    <div class="map-container">
+      <div class="map"></div>
+    </div>
+  </div>
+  <script src="./dist/bundle.js"></script>
+</body>
+</html>
