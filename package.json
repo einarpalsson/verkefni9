@@ -1,0 +1,20 @@
+{
+  "name": "vef1-2020-v9",
+  "version": "1.0.0",
+  "description": "Verkefni 9 sækir gögn um jarðskjálfta frá USGS og birtir á korti með [Leaflet](https://leafletjs.com/).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/einarpalsson/verkefni9.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/einarpalsson/verkefni9/issues"
+  },
+  "homepage": "https://github.com/einarpalsson/verkefni9#readme"
+}
