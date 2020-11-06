@@ -12,13 +12,63 @@
 const URL = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson';
 // const URL = './4.5_week.geojson';
 
+let results;
+
+function showResults(results) {
+  const [{
+    mag,
+    place,
+    time,
+    updated,
+    tz,
+    url,
+    detail,
+    felt,
+    cdi,
+    mmi,
+    alert,
+    status,
+    tsunami,
+    sig,
+    net,
+    code,
+    ids,
+    sources,
+    types,
+    nst,
+    dmin,
+    rms,
+    gap,
+    magType,
+    type,
+    title
+        }] = results;
+
+    const element = 
+      el('li', 
+          el('div'),
+          el('h2', title),
+          el('dl'),
+          el('dt', 'Tími'),
+          el('dd', time),
+          el('dt', 'Styrkur'),
+          el('dd', mag)
+      );
+}
+
 export async function fetchEarthquakes() {
   // TODO Sækja gögn frá URL, setja upp villumeðhöndlun og skila
+  
+  
   fetch(`${URL}`)
-        .then((result) => {
-            if (!result.ok) {
+        .then((res) => {
+            if (!res.ok) {
                 throw new Error('None 200 status')
+            } else {
+            return res.json();
             }
-            return result.json;
         })
+        .then ((data) => {
+          showResults(data.res)
+        });
 }
