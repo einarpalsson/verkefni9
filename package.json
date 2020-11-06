@@ -6,7 +6,10 @@
   "scripts": {
     "test": "eslint *.js **/*.js",
     "build": "rollup -c",
-    "rollup-watch": "rollup -c -w"
+    "rollup-watch": "rollup -c -w",
+    "browser-sync": "browser-sync start --server --files index.html styles.css scripts.js",
+    "babel": "babel src --out-dir dist",
+    "babel-watch": "babel src --out-dir dist --watch"
   },
   "repository": {
     "type": "git",
@@ -34,6 +37,8 @@
     "rollup": "^2.33.1"
   },
   "dependencies": {
+    "date-fns": "^2.16.1",
+    "leaflet": "^1.7.1",
     "rollup-plugin-terser": "^7.0.2"
   }
 }
