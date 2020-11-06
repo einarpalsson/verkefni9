@@ -54,6 +54,8 @@ export function element(name, attributes = null, events = null,...children) {
  * Simplified element function.
  * Creates an element and append elements or strings to it.
  * 
+ * el('div', el('p', 'Texti inni í p inni í div'));
+ * 
  * @param {string} name Element name
  * @param  {...any} children List of elements or strings to append to element.
  * @returns {object} HTML element.

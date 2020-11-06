@@ -1,6 +1,6 @@
 import L from 'leaflet';
 
- 
+let map;
 
 // Býr til popup á korti út frá geojson með content
 export function createPopup(geojson, content) {
@@ -10,7 +10,13 @@ export function createPopup(geojson, content) {
 // Býr til Leaflet kort og setur miðju á (0, 0) í zoom level 2
 export function init(el) {
   // TODO
-  let map = L.map('map').setView([51.505, -0.09], 13);
+  const option = {
+    center: [0, 0],
+    zoom: 2,
+  }
+
+  map = L.map(el, option);
+  
   // Bætum við "tiles" frá OSM sem eru open source. Gætum líka
   // notað frá Google, mapbox eða fleirum en þyrftum þá aðgang
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

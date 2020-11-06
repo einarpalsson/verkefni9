@@ -9,7 +9,8 @@
     "rollup-watch": "rollup -c -w",
     "browser-sync": "browser-sync start --server --files index.html styles.css scripts.js",
     "babel": "babel src --out-dir dist",
-    "babel-watch": "babel src --out-dir dist --watch"
+    "babel-watch": "babel src --out-dir dist --watch",
+    "dev": "concurrently npm:browser-sync npm:rollup-watch"
   },
   "repository": {
     "type": "git",
