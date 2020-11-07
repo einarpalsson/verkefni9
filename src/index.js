@@ -11,14 +11,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   fetchEarthquakes()
     .then((res) => {
       if (!res.ok) {
-          throw new Error('None 200 status')
+        throw new Error('None 200 status');
       } else {
         res.json()
-        .then ((data) => {
-          console.log(data.features);
-          const html = data.features
-            .map(user => {
-              return `
+          .then((data) => {
+            console.log(data.features);
+            const html = data.features
+              .map((user) => `
               <li>
                 <div>
                   <h2>${user.properties.title}</h2>
@@ -36,11 +35,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                 </div>
               </li>
-              `;
-          })
-          .join('');
-          document.querySelector('.earthquakes').insertAdjacentHTML("afterbegin", html);
-        });
+              `)
+              .join('');
+            document.querySelector('.earthquakes').insertAdjacentHTML('afterbegin', html);
+          });
       }
-    })     
+    });
 });
