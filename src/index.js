@@ -1,7 +1,7 @@
 import { el, element, formatDate } from './lib/utils';
 import { init, createPopup } from './lib/map';
 import { fetchEarthquakes } from './lib/earthquakes';
-import { parseJSON } from 'date-fns'
+import { format } from 'date-fns'
 // importa öðru sem þarf...
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                   <h2>${user.properties.title}</h2>
                     <dl>
                       <dt>Tími</dt>
-                      <dd>${parseJSON(user.properties.time)}</dd>
+                      <dd>${format(user.properties.time,'dd.MM.yyy kk:mm:ss')}</dd>
                       <dt>Styrkur</dt>
                       <dd>${user.properties.mag} á richter</dd>
                       <dt>Nánar</dt>
