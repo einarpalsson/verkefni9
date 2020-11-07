@@ -14,7 +14,7 @@ export function createPopup(geojson, content) {
     return `
       <h2>${layer.feature.properties.title}</h2>
         <p>${parseJSON(layer.feature.properties.time)}</p>
-        <a href="${layer.feature.properties.url} target="_blank">Skoða nánar</a>
+        <a href="${layer.feature.properties.url}" target="_blank">Skoða nánar</a>
         `;
   }).addTo(map);
 }

@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </dl>
                     <div class="buttons">
                       <button>Sjá á korti</button>
-                      <a href="${user.properties.url} target="_blank">Skoða nánar</a>
+                      <a href="${user.properties.url}" target="_blank">Skoða nánar</a>
                     </div>
                 </div>
               </li>
