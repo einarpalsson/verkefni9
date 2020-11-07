@@ -1,16 +1,21 @@
 import L from 'leaflet';
+import { parseJSON } from 'date-fns';
 
 let map;
 
 // Býr til popup á korti út frá geojson með content
 export function createPopup(geojson, content) {
   // TODO
-    return L.geoJSON(data, {
-      style: function (feature) {
-          return {color: feature.properties.color};
-      }
+  L.geoJSON(geojson, {
+    style: function (feature) {
+        return {color: feature.properties.color};
+    }
   }).bindPopup(function (layer) {
-      return layer.feature.properties.description;
+    return `
+      <h2>${layer.feature.properties.title}</h2>
+        <p>${parseJSON(layer.feature.properties.time)}</p>
+        <a href="${layer.feature.properties.url} target="_blank">Skoða nánar</a>
+        `;
   }).addTo(map);
 }
 

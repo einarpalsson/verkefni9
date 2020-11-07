@@ -1,6 +1,7 @@
 import { el, element, formatDate } from './lib/utils';
 import { init, createPopup } from './lib/map';
 import { fetchEarthquakes } from './lib/earthquakes';
+import { parseJSON } from 'date-fns'
 // importa öðru sem þarf...
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       } else {
         res.json()
           .then((data) => {
+            createPopup(data, data.features.title)
             console.log(data.features);
             const html = data.features
               .map((user) => `
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                   <h2>${user.properties.title}</h2>
                     <dl>
                       <dt>Tími</dt>
-                      <dd>${user.properties.time}</dd>
+                      <dd>${parseJSON(user.properties.time)}</dd>
                       <dt>Styrkur</dt>
                       <dd>${user.properties.mag} á richter</dd>
                       <dt>Nánar</dt>
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
               `)
               .join('');
             document.querySelector('.earthquakes').insertAdjacentHTML('afterbegin', html);
-          });
+          })
       }
     });
 });
