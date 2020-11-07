@@ -8,48 +8,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const map = document.querySelector('.map');
   init(map);
 
-  function showResults(results) {
-    const [{
-      mag,
-      place,
-      time,
-      updated,
-      tz,
-      url,
-      detail,
-      felt,
-      cdi,
-      mmi,
-      alert,
-      status,
-      tsunami,
-      sig,
-      net,
-      code,
-      ids,
-      sources,
-      types,
-      nst,
-      dmin,
-      rms,
-      gap,
-      magType,
-      type,
-      title
-          }] = results;
-
-      const element = 
-        el('li', 
-            el('div'),
-            el('h2', title),
-            el('dl'),
-            el('dt', 'Tími'),
-            el('dd', time),
-            el('dt', 'Styrkur'),
-            el('dd', mag)
-        );
-    }
-
   fetchEarthquakes()
     .then((res) => {
       if (!res.ok) {
@@ -57,12 +15,32 @@ document.addEventListener('DOMContentLoaded', async () => {
       } else {
         res.json()
         .then ((data) => {
-          //console.log(data.features);
-          showResults(data.features);
+          console.log(data.features);
+          const html = data.features
+            .map(user => {
+              return `
+              <li>
+                <div>
+                  <h2>${user.properties.title}</h2>
+                    <dl>
+                      <dt>Tími</dt>
+                      <dd>${user.properties.time}</dd>
+                      <dt>Styrkur</dt>
+                      <dd>${user.properties.mag} á richter</dd>
+                      <dt>Nánar</dt>
+                      <dd>${user.properties.url}</dd>
+                    </dl>
+                    <div>
+                      <button>Sjá á korti</button>
+                      <a href="${user.properties.url} target="_blank">Skoða nánar</a>
+                    </div>
+                </div>
+              </li>
+              `;
+          })
+          .join('');
+          document.querySelector('.earthquakes').insertAdjacentHTML("afterbegin", html);
         });
       }
     })     
 });
-
-let results;
-
