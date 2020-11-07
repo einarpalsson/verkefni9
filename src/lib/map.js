@@ -1,5 +1,5 @@
 import L from 'leaflet';
-import { parseJSON } from 'date-fns';
+import { format } from 'date-fns';
 
 let map;
 
@@ -13,7 +13,7 @@ export function createPopup(geojson, content) {
   }).bindPopup(function (layer) {
     return `
       <h2>${layer.feature.properties.title}</h2>
-        <p>${parseJSON(layer.feature.properties.time)}</p>
+        <p>${format(layer.feature.properties.time, 'dd.MM.yyy kk:mm:ss')}</p>
         <a href="${layer.feature.properties.url}" target="_blank">Skoða nánar</a>
         `;
   }).addTo(map);
