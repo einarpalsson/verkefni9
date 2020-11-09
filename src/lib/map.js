@@ -4,9 +4,9 @@ import { format } from 'date-fns';
 let map;
 
 // Býr til popup á korti út frá geojson með content
-export function createPopup(geojson, content) {
+export function createPopup(geojson) {
   // TODO
-  L.geoJSON(geojson, {
+  return L.geoJSON(geojson, {
     style: function (feature) {
         return {color: feature.properties.color};
     }
@@ -35,4 +35,5 @@ export function init(el) {
     maxZoom: 19,
     attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
   }).addTo(map);
+  return map;
 }
