@@ -4,7 +4,7 @@
   "description": "Verkefni 9 sækir gögn um jarðskjálfta frá USGS og birtir á korti með [Leaflet](https://leafletjs.com/).",
   "main": "index.js",
   "scripts": {
-    "test": "eslint *.js ./src/index.js",
+    "test": "eslint *.js ./src/index.js ./src/lib/map.js ./src/lib/earthquakes.js",
     "test-fix": "eslint --fix --ext ./src/index.js.",
     "build": "rollup -c",
     "rollup-watch": "rollup -c -w",

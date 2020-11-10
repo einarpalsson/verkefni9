@@ -1,5 +1,0 @@
-TODO
-    -"Sjá á korti" button on click event.3
-    -Laga tíma?
-    -"Hleð gögnum..." hide þegar gögn eru komin
-    -Error stuff?

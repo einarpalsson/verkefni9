@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   const map = document.querySelector('.map');
   const leafMap = init(map);
 
+  function hideLoading() {
+    const loading = document.querySelector('.loading');
+    loading.remove();
+  }
+
   fetchEarthquakes()
     .then((res) => {
       if (!res.ok) {
@@ -43,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 pinEl.onclick = () => {
                   const c = location.geometry.coordinates;
                   const latlng = L.latLng(c[1], c[0]);
-                  L.popup().setLatLng(latlng).setContent(
+                  L.popup({ className: 'popup-margin-class' }).setLatLng(latlng).setContent(
                     `
                     <h2>${location.properties.title}</h2>
                     <p>${format(location.properties.time, 'dd.MM.yyy kk:mm:ss')}</p>
@@ -52,6 +57,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                   ).openOn(leafMap);
                 };
               });
+            hideLoading();
+          })
+          .catch(() => {
+            const errorMsg = '<p>Óvænt villa<p>';
+            document.querySelector('.earthquakes').insertAdjacentHTML('afterbegin', errorMsg);
           });
       }
     });

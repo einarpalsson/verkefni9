@@ -99,3 +99,7 @@ button {
 footer {
   margin-bottom: 1em;
 }
+
+.popup-margin-class {
+  margin-bottom: 50px !important;
+}
