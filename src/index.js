@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           </div>
         </li>
         `;
-        document.querySelector('.earthquakes').insertAdjacentHTML('afterbegin', output);
+        document.querySelector('.earthquakes').insertAdjacentHTML('beforeend', output);
         const pinEl = document.querySelector(`.location_${location.id}`);
         pinEl.onclick = () => {
           marker.openPopup();
